@@ -13,7 +13,9 @@ int main() {
 	//Do while petlja izvrsava se jednom, a onda nudi korisniku opciju da ponovi program.
 	do{
 		cout << "Unesite Poruku" << endl;
-		getline(cin, poruka);
+		cin.clear();
+		cin.ignore(10000, '\n');
+		getline(cin, poruka); //AAA
 		
 		cout << "Enkripcija - 0, Dekripcija - 1" << endl;
 			bool izbor;
