@@ -50,7 +50,7 @@ string enkriptuj(string poruka, string sifra) {
 	string pom;
 	if (poruka.length() <= sifra.length()) {
 		for (int i = 0; i < poruka.length(); i++) {
-			cout << poruka[i] << " ";
+			pom[i] = (poruka[i] + sifra[i]) % 126;
 		}
 	}
 	else {
