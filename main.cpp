@@ -1,11 +1,13 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cstdlib>
 
 using namespace std;
 
 string enkriptuj(string, string);
 string dekriptuj(string, string);
+string generisiSifru();
 
 int main() {
 
@@ -13,6 +15,7 @@ int main() {
 	string poruka;					//Poruka koju korisnik unosi, ili dekriptovana poruka.
 	string sifra;
 	string enkrPoruka;
+	srand(time(0));
 
 	//Do while petlja izvrsava se jednom, a onda nudi korisniku opciju da ponovi program.
 	do {
@@ -73,5 +76,19 @@ string dekriptuj(string poruka, string sifra) {
 	} else {
 		cout << "Greska" << endl;
 	}
+	return pom;
+}
+
+string generisiSifru() {
+	string pom;
+	int duzina;
+	cout << "UPOZORENJE: Sifre generisane programom nisu, i ne mogu biti apsolutno nasumicne, pa zato nisu sigurne" << endl;
+	cout << "Koliko karaktera treba sifra biti duga? ";
+	cin >> duzina;
+
+	for (int i = 0; i < duzina; i++) {
+		pom += char(rand()%126);
+	}
+
 	return pom;
 }
