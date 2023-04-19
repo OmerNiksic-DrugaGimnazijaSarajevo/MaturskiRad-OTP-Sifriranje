@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include <string>
 #include <cstdlib>
 
@@ -31,17 +30,17 @@ int main() {
 		switch (izbor) {
 		case 0:					//Enkripcija
 			cout << "Poruka koju program enkriptuje je: " << poruka << endl;
-			cout << enkriptuj(poruka, sifra);
+			cout << "Enkriptovana poruka je: " << enkriptuj(poruka, sifra);
 
 			break;
 
 		case 1:					//Dekripcija
 			cout << "Enkriptovana Poruka koju ce program dekriptovati je: " << poruka << endl;
-			cout << dekriptuj(poruka, sifra);
+			cout << "Dekriptovana poruka je : " << dekriptuj(poruka, sifra);
 			break;
 		}
 
-		cout << "Da li zelite poceti ponovo? Ne - 0, Da - 1" << endl;
+		cout << endl << "Da li zelite poceti ponovo? Ne - 0, Da - 1" << endl;
 		cin >> nastavi;
 
 		cin.clear();
