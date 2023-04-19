@@ -43,10 +43,10 @@ int main() {
 			break;
 
 		case 2:
-			ofstream sifraFile("fajlovi/sifra.txt");
+			ofstream sifraFile2("fajlovi/sifra.txt");
 			sifra = generisiSifru();
-			sifraFile << sifra;
-			sifraFile.close;
+			sifraFile2 << sifra;
+			sifraFile2.close;
 			break;
 		}
 
