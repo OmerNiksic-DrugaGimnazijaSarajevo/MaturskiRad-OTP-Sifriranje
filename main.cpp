@@ -1,6 +1,7 @@
-#include <iostream>
+﻿#include <iostream>
 #include <string>
 #include <cstdlib>
+#include <fstream>
 
 using namespace std;
 
@@ -20,12 +21,37 @@ int main() {
 	do {
 		cout << "Unesite Poruku" << endl;
 		getline(cin, poruka);
-		cout << "Unesite Sifru" << endl;
-		getline(cin, sifra);
 
-		cout << "Enkripcija - 0, Dekripcija - 1" << endl;
+		cout << "Da li je poruka tekst koji treba sifrovati, ili sifrovani tekst koji treba dešifrovati? Treba Sifrovati - 0, Treba Desifrovati - 1" << endl;
 		bool izbor;
 		cin >> izbor;
+
+		cout << "Kako zelite unijeti sifru - Ručnim unosom (0), Ucitavanjem iz fajla (1), ili generisanjem sifre (3)(nije preporuceno radi sigurnosti)" << endl;
+		int izborS;
+		cin >> izborS;
+
+		switch (izborS) {
+		case 0:
+			cout << "Unesite Sifru" << endl;
+			getline(cin, sifra);
+			break;
+
+		case 1:
+			ifstream sifraFile("fajlovi/sifra.txt");
+			getline(sifraFile, sifra);
+			sifraFile.close;
+			break;
+
+		case 2:
+			ofstream sifraFile("fajlovi/sifra.txt");
+			sifra = generisiSifru();
+			sifraFile << sifra;
+			sifraFile.close;
+			break;
+		}
+
+		cout << "Unesite Sifru" << endl;
+		getline(cin, sifra);
 
 		switch (izbor) {
 		case 0:					//Enkripcija
