@@ -15,6 +15,8 @@ int main() {
 	string poruka;					//Poruka koju korisnik unosi, ili dekriptovana poruka.
 	string sifra;
 	string enkrPoruka;
+	fstream sifraStream;
+	sifraStream.open("fajlovi/sifra.txt");
 	srand(time(0));
 
 	//Do while petlja izvrsava se jednom, a onda nudi korisniku opciju da ponovi program.
@@ -26,7 +28,7 @@ int main() {
 		bool izbor;
 		cin >> izbor;
 
-		cout << "Kako zelite unijeti sifru - Ručnim unosom (0), Ucitavanjem iz fajla (1), ili generisanjem sifre (3)(nije preporuceno radi sigurnosti)" << endl;
+		cout << "Kako zelite unijeti sifru - Ručnim unosom (0), Ucitavanjem iz fajla (1), ili generisanjem sifre (2)(nije preporuceno radi sigurnosti)" << endl;
 		int izborS;
 		cin >> izborS;
 
@@ -37,21 +39,14 @@ int main() {
 			break;
 
 		case 1:
-			ifstream sifraFile("fajlovi/sifra.txt");
-			getline(sifraFile, sifra);
-			sifraFile.close;
+			getline(sifraStream, sifra);
 			break;
 
 		case 2:
-			ofstream sifraFile2("fajlovi/sifra.txt");
 			sifra = generisiSifru();
-			sifraFile2 << sifra;
-			sifraFile2.close;
+			sifraStream << sifra;
 			break;
 		}
-
-		cout << "Unesite Sifru" << endl;
-		getline(cin, sifra);
 
 		switch (izbor) {
 		case 0:					//Enkripcija
@@ -73,7 +68,7 @@ int main() {
 		cin.ignore(10000, '\n');
 	} while (nastavi == 1);
 
-
+	sifraStream.close();
 	return 0;
 }
 
