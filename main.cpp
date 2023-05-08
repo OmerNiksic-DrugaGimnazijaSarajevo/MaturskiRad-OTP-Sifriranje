@@ -84,6 +84,7 @@ string enkriptuj(string poruka, string sifra) {
 	}
 	else {
 		cout << "Greska" << endl;
+		pom = "Greška";
 	}
 	return pom;
 }
@@ -97,6 +98,7 @@ string dekriptuj(string poruka, string sifra) {
 		}
 	} else {
 		cout << "Greska" << endl;
+		pom = "Greska";
 	}
 	return pom;
 }
