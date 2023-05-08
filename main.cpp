@@ -35,6 +35,8 @@ int main() {
 		switch (izborS) {
 		case 0:
 			cout << "Unesite Sifru" << endl;
+			cin.clear();
+			cin.ignore(10000, '\n');
 			getline(cin, sifra);
 			break;
 
